@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: board
+  labels:
+    app: board-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: board
+  template:
+    metadata:
+      labels:
+        app: board
+    spec:
+      containers:
+        - name: board-container
+          image: tom721/board:0.1
+          ports:
+            - containerPort: 8080
